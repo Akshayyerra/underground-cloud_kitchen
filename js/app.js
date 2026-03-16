@@ -86,7 +86,13 @@ updateCart();
 
 function openCart(){
 
-document.getElementById("cartPopup").style.display="flex";
+const cartSection = document.querySelector(".cart");
+
+if(cartSection){
+cartSection.scrollIntoView({
+behavior:"smooth"
+});
+}
 
 }
 
