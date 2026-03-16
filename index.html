@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+</div>
 <title>Underground Cloud Kitchen</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -21,12 +21,13 @@ padding:20px;
 .logo{
 display:block;
 margin:auto;
-width:200px;
+width:300px;
 }
 
 h1{
 text-align:center;
 }
+
 
 .section-title{
 margin-top:40px;
@@ -80,15 +81,69 @@ padding:20px;
 border-radius:10px;
 }
 
+#viewCart{
+position:fixed;
+top:20px;
+right:20px;
+background:black;
+color:white;
+padding:10px 20px;
+border-radius:25px;
+cursor:pointer;
+z-index:999;
+}
+
+.cart-popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+display:none;
+justify-content:center;
+align-items:center;
+}
+
+.cart-box{
+background:white;
+padding:20px;
+width:90%;
+max-width:400px;
+border-radius:10px;
+max-height:80%;
+overflow:auto;
+}
+
 </style>
 
 </head>
 
 <body>
+    <div id="viewCart" onclick="openCart()">
+View Cart (<span id="viewCartCount">0</span>)
+</div>
 
 <img src="images/logo.png" class="logo">
 
 <h1>UNDERGROUND CLOUD KITCHEN</h1>
+
+<div id="viewCart" onclick="openCart()" style="
+position:fixed;
+top:20px;
+right:20px;
+background:black;
+color:white;
+padding:10px 20px;
+border-radius:20px;
+display:none;
+cursor:pointer;
+z-index:999;
+">
+
+View Cart (<span id="cartCount">0</span>)
+
+</div>
 
 <!-- STARTERS -->
 
@@ -122,6 +177,7 @@ Chilli Chicken
 <button onclick="add('Chilli Chicken',159)">Add</button>
 </div>
 </div>
+
 
 <div class="card">
 <img src="images/chicken_wings.jpg">
@@ -443,15 +499,15 @@ Coca Cola
 
 </div>
 
-<!-- CART -->
-
 <div class="cart">
 
 <h2>Your Cart</h2>
 
 <ul id="cart"></ul>
 
-<h3>Total ₹<span id="total">0</span></h3>
+<h3>Subtotal ₹<span id="subtotal">0</span></h3>
+<h3>Delivery ₹<span id="delivery">0</span></h3>
+<h2>Total ₹<span id="total">0</span></h2>
 
 <input id="name" placeholder="Name"><br><br>
 <input id="phone" placeholder="Phone"><br><br>
@@ -479,5 +535,7 @@ navigator.serviceWorker.register("/sw.js")
 
 </script>
 <script src="js/app.js"></script>
+
+</div>
 </body>
 </html>
